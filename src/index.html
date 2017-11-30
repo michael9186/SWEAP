@@ -27,7 +27,11 @@
         <script src="https://code.angularjs.org/1.3.15/angular.js"></script>
         <script src="https://rawgit.com/allenhwkim/angularjs-google-maps/master/build/scripts/ng-map.js"></script>
         
-     
+        <!-- Scripts for Camera -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
+
+
         <!-- App Initialization -->
         <script>  
             var app = angular
@@ -49,8 +53,9 @@
             <div style="background-color:#2e7d32" id = "sideNavContainer" ng-controller = "sideNavController as ctrl" layout = "row" ng-cloak>
                 <md-sidenav md-component-id = "left" class = "md-sidenav-left" style="height:100%">                
                     <md-toolbar style="height: 4%; background-color:#2e7d32" ng-click = "openLeftMenu()"></md-toolbar>
-                    <md-content style="background-color:#ffffff" >           
-                            <h1><a href="#!camera">Camera</a></h1>
+                    <md-content style="background-color:#ffffff" >  
+                            <h1><a href="index.html">Karte</a></h1>         
+                            <h1><a href="pages/camera.html">Kamera</a></h1>
                         
                     </md-content>
                 </md-sidenav>
@@ -63,10 +68,6 @@
             <div>
                 <ng-map center="[40.74, -74.18]"></ng-map>
             </div>
-            
-            <!-- Camera -->
-            
-
 
 
 
