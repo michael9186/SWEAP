@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+      <meta charset="utf-8">
+
+      <!-- Scripts for AngularJS --> 
+      <link rel = "stylesheet" href = "https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.min.js"></script>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-aria.min.js"></script>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-messages.min.js"></script>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+      <link rel = "stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+      <!-- Scripts for Camera -->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link rel="stylesheet" href="css/styles.css">
+      <script src="./js/script.js"></script>
+      
+      <!-- App Initialization -->
+      <script>  
+        var app = angular
+            .module('myApp', ['ngMaterial', 'ngMap'])
+            .controller('sideNavController', sideNavController);
+        
+        function sideNavController ($scope, $mdSidenav) {
+            $scope.openLeftMenu = function() {
+              $mdSidenav('left').toggle();
+            };   
+        }	  
+      </script>
+      <script>  
+        var app = angular
+            .module('myApp', ['ngMaterial'])
+            .controller('sideNavController', sideNavController);
+        
+        function sideNavController ($scope, $mdSidenav) {
+            $scope.openLeftMenu = function() {
+               $mdSidenav('left').toggle();
+            };   
+         }	  
+    </script>
+  </head>
+  <body>
+
+      <div ng-app = 'myApp'>     
+        <!-- Sidemenu -->
+        <div style="background-color:#2e7d32" id = "sideNavContainer" ng-controller = "sideNavController as ctrl" layout = "row" ng-cloak>
+            <md-sidenav md-component-id = "left" class = "md-sidenav-left">
+                <md-content style="background-color:#2e7d32" >           
+                    <md-button style="background-color:#60ad5e; color:white;" ng-click = "openLeftMenu()"><span style="font-size:20px;cursor:pointer">☰</span></md-button>
+                </md-content>
+            </md-sidenav>
+            <md-content style="background-color:#2e7d32" >           
+                <md-button style="background-color:#60ad5e; color:white;" ng-click = "openLeftMenu()"><span style="font-size:20px;cursor:pointer">Menü</span></md-button>
+            </md-content>
+        </div>
+
+
+        <div class="container">
+
+          <div class="app">
+
+            <a href="#" id="start-camera" class="visible">Touch here to start the app.</a>
+            <video id="camera-stream"></video>
+            <img id="snap">
+
+            <p id="error-message"></p>
+
+            <div class="controls">
+              <a href="#" id="delete-photo" title="Delete Photo" class="disabled"><i class="material-icons">delete</i></a>
+              <a href="#" id="take-photo" title="Take Photo"><i class="material-icons">camera_alt</i></a>
+              <a href="#" id="download-photo" download="selfie.png" title="Save Photo" class="disabled"><i class="material-icons">file_download</i></a>  
+            </div>
+
+            <!-- Hidden canvas element. Used for taking snapshot of video. -->
+            <canvas></canvas>
+
+      </div>
+
+    </div>
+
+  </body>
+
+</html>
